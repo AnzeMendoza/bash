@@ -1,2 +1,2 @@
 # bash
-Aprendiendo shell script
+Practicando shell script
