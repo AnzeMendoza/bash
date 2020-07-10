@@ -8,15 +8,15 @@ echo "Hola Mundo"
 echo -e "Hola \t Mundo"
 ```
 
-la segunda instruccion le da un tab.
+la segunda instrucción le da un tab.
 
 ```sh
 echo "El usuario activo: $USER"
 echo 'El usuario activo: $USER'
 echo "multiplicación: $((50*10))"
 ```
-La primera opcion muestra la variable, mientras que la segunda muestra la cadena literal, esa es la diferencia entre **comillas simples y dobles**
-. La tercera instrucción nos muestra el producto, **ojo con el doble parentesis**
+La primera opción muestra la variable, mientras que la segunda muestra la cadena literal, esa es la diferencia entre **comillas simples y dobles**
+. La tercera instrucción nos muestra el producto, **ojo con el doble paréntesis**
 
 ##  Mostrar contenido de ficheros de texto. CAT, MORE y LESS
 
@@ -26,17 +26,17 @@ La primera opcion muestra la variable, mientras que la segunda muestra la cadena
 ```sh
 echo /etc/issue
 ```
-Me va a mostra la version de GNU/linux instalado.
+Me va a mostrar la version de GNU/linux instalado.
 
 ```sh
 echo -n /etc/network/intefaces
 ```
 
-Muestra la configuración de la red, y con el parametro **-n** me muestra el numero de linea.
+Muestra la configuración de la red, y con el parámetro **-n** me muestra el numero de linea.
 
-- **more**: Puede concatenarse ficheros de texto.Simil a cat pero puedo moverme progresivamente con el **enter** o pantalla por pantalla con el **space**. Con el boton **h** me muestra muchas opciones.
+- **more**: Puede concatenarse ficheros de texto. Símil a cat pero puedo moverme progresivamente con el **enter** o pantalla por pantalla con el **space**. Con el botón **h** me muestra muchas opciones.
 
-- **less**: Puede concatenarse ficheros de texto. Con el boton **h** me muestra muchas opciones. Esta mas optimizado que **more**.
+- **less**: Puede concatenarse ficheros de texto. Con el botón **h** me muestra muchas opciones. Esta mas optimizado que **more**.
 
 ##  Seleccionar primeras o últimas lineas: HEAD y TAIL
 
@@ -44,7 +44,7 @@ Muestra la configuración de la red, y con el parametro **-n** me muestra el num
     - **-nX o -X**: siendo **X** el numero de lineas que quiero mostrar.
 - **tail**: Si queremos ver las ultimas lineas.  Por defecto muestra las ultimas diez.
 
-Los dos pueden trabajar con varios archivos, por ende me mostraria los **X** lineas de varios archivos. Me agrega el nombre del archivo como separador con **-q** las puedo sacar.
+Los dos pueden trabajar con varios archivos, por ende me mostraría los **X** lineas de varios archivos. Me agrega el nombre del archivo como separador con **-q** las puedo sacar.
 
 ```sh
 tail -n5 /var/log/*
@@ -62,7 +62,7 @@ cut -c 5,10 etc/passwd
 cut -c 5,10 etc/passwd
 cut -c 5,10-15,22 etc/passwd
 ```
-El primero me mostraria lo que contenga el archivo etc/passwd desde el 5 y 10.
+El primero me mostraría lo que contenga el archivo etc/passwd desde el 5 y 10.
 El segundo lo que contenga el archivo etc/passwd solo el 5 y 10.
 La tercera opción es una combinación de ambas.
 
@@ -70,12 +70,12 @@ La tercera opción es una combinación de ambas.
 cut -d ":" -f1-5 etc/passwd
 cut -d ":" -f1,7 etc/passwd
 ```
-La primera linea me mostraria todos los campos delimitados por los ":", de la columna 1 al 5.
+La primera linea me mostraría todos los campos delimitados por los ":", de la columna 1 al 5.
 Mientras que otra instrucción me muestra solamente la columna 1 y la 7.
 
 ## Filtrar sólo las lineas que contengan un patrón: GREP
 
-- **grep**: Muestra sólo las linesas que cimplen con un patrón. Se pueden usar las palabras o expresiones regulares.
+- **grep**: Muestra sólo las lineas que cumplen con un patrón. Se pueden usar las palabras o expresiones regulares.
     - **-v** : Muestra las que NO coinciden con el patron.
     - **-l** : Sólo indica el nombre del archivo donde se ha encontrado alguna coincidencia.
     - **-w** : El patrón tiene que se una palabra independiente.

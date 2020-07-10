@@ -4,41 +4,41 @@ Los repositorios son servidores encargado de proveernos los software a linux.
 
 Necesito tener permisos de administrador.
 
-```bat
+```sh
 vim /etc/apt/source.list
 ```
-Aca estan las fuentes de paquetes a instalar, es donde se va a ir a buscar si es que queremos instalar algun software.
+Aca están las fuentes de paquetes a instalar, es donde se va a ir a buscar si es que queremos instalar algún software.
 
-```bat
+```sh
 sudo apt-get update
 ```
-descarga toda la lista de softwarea disponible de mis repositorios.
+descarga toda la lista de software disponible de mis repositorios.
 
-```bat
-sudo apt-cache seach vlc
+```sh
+sudo apt-cache search vlc
 ```
 
 Ya que vamos a buscar en la lista actualizada que descargue con update.
 
-```bat
+```sh
 sudo apt-get install vlc
 ```
 instalo VLC
 
-```bat
+```sh
 sudo apt-get remove vlc
 ```
 desistalo VLC
 
 
-```bat
+```sh
 sudo apt-get purge vlc
 ```
 desistala y elimina todos los archivos de configuración VLC.
 
 
 
-```bat
+```sh
 sudo aptitude search vlc
 ```
 El primer carácter de cada línea indica el estado actual del paquete:
@@ -69,7 +69,7 @@ El tercer carácter de cada línea indica el estado actual del paquete:
 
 ## Administración con aptitude y Synaptic (entorno gráfico)
 
-```bat
+```sh
 sudo aptitude 
 ```
 

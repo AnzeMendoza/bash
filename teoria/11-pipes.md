@@ -9,19 +9,19 @@ echo "Hola Mundo"
 cat /etc/passwd
 ```
 
-los dos comando interpretan que el flujo de informacion tiene que salir por pantalla.
+los dos comando interpretan que el flujo de información tiene que salir por pantalla.
 
 Toda esa información puede por asi decirse "desviarme" mediante el uso de **>**
 
 ```sh
 echo "Hola Mundo" > saludo.txt
 ```
-Esto me genera un archivo, donde se guardara la informacion "Hola Mundo". Y no se muestra por el monitor.
+Esto me genera un archivo, donde se guardara la información "Hola Mundo". Y no se muestra por el monitor.
 
-- Usamos un solo **>** si el archivo existe, lo sobreescribe.
+- Usamos un solo **>** si el archivo existe, lo sobrescribe.
 - Usamos dos **>>** si existe, lo agrega al final del archivo.
 
-- Los mensajes de error se pueden redirigir de foima independiente usamos
+- Los mensajes de error se pueden redirigir de forma independiente usamos
     - **2>**
     - **2>>**
 - Para redirigir todos los mensajes se usa **&>** o **&>>**.
@@ -30,7 +30,7 @@ Esto me genera un archivo, donde se guardara la informacion "Hola Mundo". Y no s
 
 - Salida Estandar: Monitor
 - Redireccion:  archivos
-- Tuberia: que sea entrada de  otros procesos.  
+- Tubería: que sea entrada de  otros procesos.  
 
 Además de enviar texto a un dispositivo, disponemos de otra potente opción: enviarlo a otro comando. Esto se realiza con el carácter **|**.
 
@@ -54,28 +54,17 @@ du -sh /* 2> /dev/null | sort -h | tail -n1
 
 Me muestra el directorio que mas ocupa en mi sistema.
 
-Tambien puedo redirigir la entrada de texto, para ello usamos el carácter **<**, que enviará la información que lee de un fichero al comando.
+También puedo redirigir la entrada de texto, para ello usamos el carácter **<**, que enviará la información que lee de un fichero al comando.
 
 ```sh
 sort < listado
 ```
-que ordene y va a agarrar las palabras que estan en listado. Tener en cuenta que tiene que estar separado por nuevas lineas.
+que ordene y va a agarrar las palabras que están en listado. Tener en cuenta que tiene que estar separado por nuevas lineas.
 
-Si queremos desechar alguna salida, podemos usar el dispositivo **/dev/null**. Enviar texto hará que no aparezca ni se guarde en ningun sitio.
+Si queremos desechar alguna salida, podemos usar el dispositivo **/dev/null**. Enviar texto hará que no aparezca ni se guarde en ningún sitio.
 
-Podemos conbinar todo lo estudiado en este tema
+Podemos combinar todo lo estudiado en este tema
 
 ```sh
 wc /etc/a* 2> /dev/null | sort -n > cont
-```
-
-```java
-public class Test {
-
-static void main(String[] args){
-
-	System.out.println("Hello World");
-	
-}
-}
 ```

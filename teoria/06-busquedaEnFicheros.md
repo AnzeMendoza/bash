@@ -2,7 +2,7 @@
 
 Busca de forma recursiva en un directorio todos los fichero que cumplan ciertas condiciones.
 
-```bat
+```sh
 find <path> <opciones>
 ```
 
@@ -13,61 +13,61 @@ find <path> <opciones>
 - **-type <tipo>** : permite acotar el tipo de fichero a buscar.
     - **d** para **directorios**
     - **f** para **ficheros** regulares 
-    - **l** para **enlaces** simbolicos 
+    - **l** para **enlaces** simbólicos 
     - **b** para **dispositivos** de bloque
     - **c** para **dispositivos** de carácter 
-    - **p** para **tuberias** 
+    - **p** para **tuberías** 
     - **s** para **sockets**.
 
 #### ejemplos
 
-```bat
+```sh
 find . -iname '*.mp3'
 ```
 
-Esto lo que haria es buscar en el directorio donde me encuentro todos los archivos que sean mp3. Lo que me mostraria esto son los path de donde encuentre coincidencia.
+Esto lo que haría es buscar en el directorio donde me encuentro todos los archivos que sean mp3. Lo que me mostraría esto son los path de donde encuentre coincidencia.
 
-```bat
+```sh
 find . -iname '*i*.mp3'
 ```
 
-Simil al anterior pero en el nombre debe contener una 'i'.
+Símil al anterior pero en el nombre debe contener una 'i'.
 
-```bat
+```sh
 find . -iname '*i*'
 ```
 
-No solamente me devolveria paths de archivos sino tambien de carpetas.
+No solamente me devolvería paths de archivos sino también de carpetas.
 
-```bat
+```sh
 find . -iname '*i*' -type d
 ```
 
-Me devolveria solo los paths de las carpetas.
+Me devolvería solo los paths de las carpetas.
 
-```bat
+```sh
 find . -iname '*i*' -type f
 ```
 
-Me devolveria solo los paths de archivos.
+Me devolvería solo los paths de archivos.
 
 ### Opciones
 
 - **-size** +/- <n> : permite indicar el tamaño máximo y/o mínimo de los ficheros a buscar.
     - Por defecto el tamaño se expresa en bloques de 512 bytes, pero se puede especificar las magnitudes por un carácter: 
-        - **c** se referira a **bytes** 
+        - **c** se refiere a **bytes** 
         - **k** a **kilobytes**
         - **M** a **Megabytes**
         - **G** a **Gigabytes**
 
 #### ejemplos
 
-```bat
+```sh
 find  -size <+|-><tamanio>
 ```
 Miremos bien que lo le especifique el lugar donde lo empiece a buscar por ende es el directorio actual.
 
-```bat
+```sh
 find  -size +200
 find  -size -2M
 ```
@@ -80,18 +80,18 @@ find  -size -2M
 
 #### ejemplos
 
-```bat
+```sh
 find  -perm +600 
 ```
 
-Lo que me mostraria es en usuario quien tenga **rw-**, solamente los que cumplan esas dos condiciones.
+Lo que me mostraría es en usuario quien tenga **rw-**, solamente los que cumplan esas dos condiciones.
 
-```bat
+```sh
 find  -perm -600 
 ```
 lo que muestra es todos los archivos o directorios que tengan esos dos independientemente de los permisos de grupo y otros.
 
-```bat
+```sh
 find  -perm /600 
 ```
 
@@ -104,28 +104,28 @@ Opcionalmente se puede cumplir la **r** o la **w** en los permisos de usuario.
 
 #### ejemplos
 
-```bat
+```sh
 find -user profesor
 find -group alumnos
 ```
 
-```bat
+```sh
 find . -type f -user profesor -perm /200
 ```
 
-Busco archivos del usurio profesor que como minimo tenga permisos de **w**
+Busco archivos del usuario profesor que como mínimo tenga permisos de **w**
 
 
-```bat
+```sh
 find . -type l 
 ```
-Me mostraria todos los enlaces que hay en el directorio .
+Me mostraría todos los enlaces que hay en el directorio .
 
 
-```bat
+```sh
 find -perm /002 -type d
 ```
-Buscame los directorios que tienen permiso de escritura para todos los usuarios. Esto los podria modificar cualquier usuario del sistema.
+Buscame los directorios que tienen permiso de escritura para todos los usuarios. Esto los podría modificar cualquier usuario del sistema.
 
 ## Comando Find: fecha de modificación y profundidad máxima
 
@@ -136,7 +136,7 @@ Buscame los directorios que tienen permiso de escritura para todos los usuarios.
 
 #### ejemplos
 
-```bat
+```sh
 find . -mmin 30
 find . -mmin -30
 find . -mmin +30
@@ -144,7 +144,7 @@ find . -mmin +30
 
 el primero  son 30 minuto exactos, el segundo menos de 30 minutos y el tercero mas de 30 minutos.
 
-```bat
+```sh
 find . -mtime 1
 find . -mtime +1
 find . -mtime -1
@@ -154,34 +154,34 @@ el primero en un dia exacto, el segundo en mas de un dia, el tercero en menos de
 
 Como sabemos que el comando **find** trabaja de manera recursiva y no queremos que haga esto.
 
-- **-maxdepth <niveles>** Desciende como muchos niveles (un entero no negativo) de directorios por debajo de los argumentos de la linea órdenes.
+- **-maxdepth [niveles]** Desciende como muchos niveles (un entero no negativo) de directorios por debajo de los argumentos de la linea órdenes.
 
-```bat
+```sh
 find . -maxdepth 2 -iname '*a*'
 ```
 
-siempre se lo tiene que poner en primer lugar, despues hago la busqueda normal, lo que hace es buscar de manera recursiva solamente en dos niveles.
+siempre se lo tiene que poner en primer lugar, después hago la búsqueda normal, lo que hace es buscar de manera recursiva solamente en dos niveles.
 
 
 ## Comando Find: opción exec, ejecuta un comando a los elementos encontrados.
 
-- **-exe <comando>** : permite definir un comando a ejecutarse para cada resultado de la búsqueda. La cadena **{}** se sustituye por el nombre de los fivherios encontrados. El caracter **;**  permite indicar la finalización del comando (tanto **{}** como **;** tienen qu ir entre comillas o entre contrabarras para evitar que sea sustituido por el shell)
+- **-exe [comando]** : permite definir un comando a ejecutarse para cada resultado de la búsqueda. La cadena **{}** se sustituye por el nombre de los ficheros encontrados. El carácter **;**  permite indicar la finalización del comando (tanto **{}** como **;** tienen qu ir entre comillas o entre contra barras para evitar que sea sustituido por el shell)
 
 #### ejemplos
 
-```bat
+```sh
 find /etc/ -iname '*.conf' -size -1M -exec cp '{}' /home/copias/ ';'
 ```
 
 Copia todos los ficheros con extensión .conf que sean menores de un MB al directorio /home/copias/
 
-```bat
+```sh
 find ~ -size +2G -exec rm '{}' ';'
 ```
 
 Borra de mi directorio personal todos los ficheros de más de 2 GB
 
 
-```bat
+```sh
 find ~ -size +2G -exec rm '{}' ';'
 ```

@@ -1,28 +1,28 @@
 # grupos y usuarios
 
-## informacion sobre grupos y usuarios
+## información sobre grupos y usuarios
 
-sucho@ham donde sucho el sucho puede ejecutar lo que quiera dentro de su directorio
+`sucho@ham` donde sucho puede ejecutar lo que quiera dentro de su directorio
 
-si quiero utilizar permisos de administrador.
+Si quiero utilizar permisos de administrador.
+Un usuario puede pertenecer un grupo principal pero puede tener muchos secundarios.
 
-un usuario puede pertenecer un grupo principal pero puede tener muchos secundarios.
+### comandos
 
-comandos
-
-whoami : me dice que usuario soy yo.
-groups : me dice los grupos a los que pertenezco.
-
-id : me aparece todos los grupos en los cual aparece.
+- `whoami` : me dice que usuario soy yo.
+- `groups` : me dice los grupos a los que pertenezco.
+- `id` : me aparece todos los grupos en los cual aparece.
 
 para saber que usuarios hay en el sistema
 
-#cat /etc/passwd
-
+```sh
+cat /etc/passwd
+```
 para saber los grupos
 
-#cat /etc/group
-
+```sh
+cat /etc/group
+```
 ## Crear usuario, grupos, contraseñas y cambiar propietarios
 
 para hacer todas las operacionés necesitamos ser ROOT 
@@ -31,7 +31,7 @@ para hacer todas las operacionés necesitamos ser ROOT
 ```sh
 adduser <nombreDeUsuarioNuevo>
 ```
-: como no le agrego grupo lo que hace es crearme un grupo con el mismo nombre que el usuario
+como no le agrego grupo lo que hace es crearme un grupo con el mismo nombre que el usuario
 
 ```sh
 addgroup <nombreDeGrupoNuevo>
@@ -41,7 +41,7 @@ addgroup <nombreDeGrupoNuevo>
 usermod -g <nombreDelGrupoDestino> <nombreDelUsuario>
 ```
 
-lo que haria es cambiar o agregarle un nuevo grupo a un usuario.
+lo que haría es cambiar o agregarle un nuevo grupo a un usuario.
 
 ```sh
 chown <usuarioDelArchivoDestino>:<nombreGrupo> <archivoQueQuieroCambiar>
@@ -54,7 +54,7 @@ veamos ahora lo mismo pero de manera independiente
 chown <usuarioDelArchivoDestino> <archivoQueQuieroCambiar>
 ```
 
-Solamente me cambiaria de usuario, no de grupo.
+Solamente me cambiaría de usuario, no de grupo.
 
 ```sh
 chown :<nombreGrupo> <archivoQueQuieroCambiar>
@@ -64,7 +64,7 @@ Solamente me cambiaria de grupo y no de usuario.
 ```sh
 passwd <usuarioPassAcambiar>
 ```
-si solamente escribo la instruccion sin el usuario se interpreta que es el usuario actual.
+si solamente escribo la instrucción sin el usuario se interpreta que es el usuario actual.
 
 ## Los permisos en los ficheros
 
@@ -114,10 +114,10 @@ chmod u+r, o-r archivo.c
 ```sh
 chmod u=w, o=rx archivo.c
 ```
-bien este ultimo lo que haria esta es agregarle solo para user, write pero le quita read y execute. Para others agregaria read, execute pero sacaria write.
+bien este ultimo lo que haría esta es agregarle solo para user, write pero le quita read y execute. Para others agregaría read, execute pero sacaría write.
 
 ```sh
 chmod 000 archivo.c
 ```
-Como al pasar a binario este quedaria en 000 000 000, lo que haria es sacarle todos los permisos a user, group, others
+Como al pasar a binario este quedaría en 000 000 000, lo que haría es sacarle todos los permisos a user, group, others
 
